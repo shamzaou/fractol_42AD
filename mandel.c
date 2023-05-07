@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <mlx.h>
+#include "minilibx_opengl_20191021/mlx.h"
 
 // define the mandelbrot function
 int mandelbrot(double x, double y) {
