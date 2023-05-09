@@ -20,7 +20,7 @@ CC = gcc
 
 CFLAGS = 
 
-MLX = libmlx.dylib
+MLX = libmlx.
 
 
 %.o: %.c
