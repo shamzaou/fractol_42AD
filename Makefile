@@ -6,36 +6,35 @@
 #    By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 19:22:58 by shamzaou          #+#    #+#              #
-#    Updated: 2023/05/06 23:22:50 by shamzaou         ###   ########.fr        #
+#    Updated: 2023/05/10 01:53:54 by shamzaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
-SRC =   main.c \
+FILES = main.c utils.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(FILES:.c=.o)
 
-CC = gcc
+CC = gcc 
 
 CFLAGS = 
 
-MLX = libmlx.dylib
+all : $(NAME)
 
+$(NAME): $(OBJ)
+	cd mlx && make
+	$(CC) $(OBJ) -Lmlx -lm -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -Imlx -c $< -o $@
+clean: 
+	rm -f $(OBJ)
 
+fclean: clean
+	rm -f $(NAME)
 
-all: $(NAME)
+re: fclean all
 
-
-$(NAME): $(MLX) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-
-
-$(MLX):
-	@make -sC ./mlx
+.PHONY: all clean fclean re
 
 
 clean:
