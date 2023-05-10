@@ -20,7 +20,11 @@ CC = gcc
 
 CFLAGS = 
 
+<<<<<<< HEAD
 all : $(NAME)
+=======
+MLX = libmlx.
+>>>>>>> 4e3f54a13377e7c63836ea8db3640f15fa74620a
 
 $(NAME): $(OBJ)
 	cd mlx && make
