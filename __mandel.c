@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandel.c                                           :+:      :+:    :+:   */
+/*   __mandel.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamzaou <shamzaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 20:33:44 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/08 20:58:25 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/14 07:31:28 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-<<<<<<< HEAD
 #include "mlx/mlx.h"
 
 // define the mandelbrot function
@@ -30,7 +29,7 @@ int mandelbrot(double x, double y) {
         if (zx2 + zy2 > 4) {
             return i;
         }
-=======
+
 #include "minilibx-linux/mlx.h"
 //#include "minilibx_opengl_20191021/mlx.h"
 
@@ -85,7 +84,6 @@ int mandelbrot(double real, double imag, int max_iter) {
         i = 2 * r * i + imag;
         r = temp;
         iter++;
->>>>>>> 4e3f54a13377e7c63836ea8db3640f15fa74620a
     }
 }
 /* nice coloring function
