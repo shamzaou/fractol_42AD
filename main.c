@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:57:38 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 04:08:14 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 05:44:50 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void draw_set(int set_num)
     graph.set_num = set_num;
     graph.img = &img;
     graph.zoom = 1.0;
+    graph.cycle = 1;
     graph.x_offset = 0.0;
     graph.y_offset = 0.0;
     img.img = mlx_new_image(graph.mlx, WIDTH, HEIGHT);

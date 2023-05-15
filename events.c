@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:54:24 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 04:11:23 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 05:28:46 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int key_press(int keycode, t_graphics *graph)
     double move_factor = 0.1 * graph->zoom;
     if (keycode == 53)
         close_window(graph);
+    else if (keycode == 40)
+        graph->cycle += 5;
+    else if (keycode == 38)
+        graph->cycle -= 5;
     else if (keycode == 123) // Left arrow
         graph->x_offset -= move_factor;
     else if (keycode == 126) // Up arrow
@@ -42,7 +46,7 @@ int key_press(int keycode, t_graphics *graph)
         graph->x_offset += move_factor;
     else if (keycode == 125) // Down arrow
         graph->y_offset += move_factor;
-
+    
     draw_fractal(graph);
     mlx_put_image_to_window(graph->mlx, graph->win, graph->img->img, 0, 0);
     return (0);

@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:07:57 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 04:15:54 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 06:06:03 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,17 @@ int create_trgb(unsigned char t, unsigned char r, unsigned char g, unsigned char
 // }
 
 // FUNC FOR CYCLING TO BE USED WITH KEY HOOKS
-int color_map(int value, int max_iter) {
+int color_map(int value, int max_iter, int cycle) {
     int r, g, b;
-    int cycle = 100;
+    double t;
 
-    r = (value * 2) % cycle;
-    g = (value * 5) % cycle;
-    b = (value * 10) % cycle;
-
-    return create_trgb(0, r, g, b);
+	if (!(cycle >= -max_iter && cycle < max_iter))
+		cycle = 0;
+	t = (double)value / (max_iter - cycle);
+    r = (int)(9 * (1 - t) * t * t * t * 255);
+    g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
+    b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
+    return (create_trgb(0, r, g, b));
 }
 
 void ft_putstr(char *str)
