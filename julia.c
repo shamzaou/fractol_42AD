@@ -6,23 +6,25 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:02:05 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 06:23:17 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 08:05:10 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void    julia_init(t_graphics *graph, t_plot *p)
+static void    julia_init(t_graphics *graph, t_plot *p, t_cus_plot cus_pts)
 {
     p->y = -1;
     p->x_min = -2 + graph->x_offset;
     p->x_max = 2 + graph->x_offset;
-    p->y_min = -2 + graph->y_offset;;
-    p->y_max = 2 + graph->y_offset;;
+    p->y_min = -2 + graph->y_offset;
+    p->y_max = 2 + graph->y_offset;
     p->c_real = -0.8;
     p->c_imag = 0.156;
+    p->c_real = cus_pts.c_real;
+    p->c_imag = cus_pts.c_imag;
 }
-void julia_draw(t_graphics *graph, int mouse_x, int mouse_y)
+void julia_draw(t_graphics *graph, int mouse_x, int mouse_y, t_cus_plot cus_pts)
 {
     t_gdata     *img;
     double      zoom;
@@ -32,7 +34,7 @@ void julia_draw(t_graphics *graph, int mouse_x, int mouse_y)
 
     img = graph->img;
     zoom = graph->zoom;
-    julia_init(graph, &p);
+    julia_init(graph, &p, cus_pts);
     while (++p.y < HEIGHT)
     {
         p.x = -1;

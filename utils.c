@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:07:57 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 06:06:03 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 08:09:48 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,42 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (result);
+}
+
+double ft_atod(const char *str)
+{
+    double result;
+    double sign;
+    double decimal_factor;
+    bool decimal_point;
+
+    result = 0.0;
+    sign = 1.0;
+    decimal_factor = 1.0;
+    decimal_point = false;
+    while (isspace(*str))
+        str++;
+    if (*str == '-' || *str == '+')
+    {
+        if (*str == '-')
+            sign = -1.0;
+        str++;
+    }
+    while ((*str >= '0' && *str <= '9') || *str == '.')
+    {
+        if (*str == '.')
+        {
+            if (decimal_point)
+                break ;
+            decimal_point = true;
+        }
+        else
+        {
+            if (decimal_point)
+                decimal_factor *= 0.1;
+            result = result * 10.0 + (*str - '0');
+        }
+        str++;
+    }
+    return (sign * result * decimal_factor);
 }

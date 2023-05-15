@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:05:54 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 06:10:52 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 08:12:17 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "mlx/mlx.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <stdbool.h>
 
 #define WIDTH 800
 #define HEIGHT 600
@@ -48,6 +50,11 @@ typedef struct s_plot
 	double	c_imag;
 }				t_plot;
 
+typedef struct s_custom_plot {
+	double	c_real;
+	double	c_imag;
+}				t_cus_plot;
+
 typedef struct	s_vars {
 	void	*mlx;
 	void	*win;
@@ -60,16 +67,18 @@ typedef struct	s_vars {
 	int		mouse_y;
 	double	x_offset;
 	double	y_offset;
+	t_cus_plot	cus_pts;
 }				t_graphics;
 
-void 	draw_set(int set_num);
-void 	draw_fractal(t_graphics *graph);
+void draw_set(int set_num, double real, double imag);
+void 	draw_fractal(t_graphics *graph, double real, double imag);
 void 	mandel_draw(t_graphics *graph, int mouse_x, int mouse_y);
 int 	create_trgb(unsigned char t, unsigned char r, unsigned char g, unsigned char b);
 int 	color_map(int value, int max_iter, int cycle);
 int 	mandel_helper(double real, double imag, int max_iter);
+void show_usage(void);
 
-void 	julia_draw(t_graphics *graph, int mouse_x, int mouse_y);
+void 	julia_draw(t_graphics *graph, int mouse_x, int mouse_y, t_cus_plot cus_pts);
 int 	julia_helper(t_plot points, int max_iter);
 void	my_mlx_pixel_put(t_gdata *data, int x, int y, int color);
 int		expose_hook(t_graphics *graph);
@@ -78,5 +87,6 @@ int 	key_press(int keycode, t_graphics *graph);
 int 	close_window(t_graphics *graph);
 void 	ft_putstr(char *str);
 int		ft_atoi(char *str);
+double ft_atod(const char *str);
 
 #endif
