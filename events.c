@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:54:24 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 08:25:02 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 12:38:54 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int mouse_scroll(int button, int x, int y, t_graphics *graph)
         graph->zoom *= zoom_factor;
     else if (button == 5)
         graph->zoom /= zoom_factor;
-
+    else
+        return(1);
     graph->mouse_x = x;
     graph->mouse_y = y;
 
@@ -46,7 +47,8 @@ int key_press(int keycode, t_graphics *graph)
         graph->x_offset += move_factor;
     else if (keycode == 125) // Down arrow
         graph->y_offset += move_factor;
-    
+    else
+        return(1);
     draw_fractal(graph, graph->cus_pts.c_real, graph->cus_pts.c_imag);
     mlx_put_image_to_window(graph->mlx, graph->win, graph->img->img, 0, 0);
     return (0);

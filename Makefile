@@ -6,7 +6,7 @@
 #    By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 19:22:58 by shamzaou          #+#    #+#              #
-#    Updated: 2023/05/15 08:26:26 by shamzaou         ###   ########.fr        #
+#    Updated: 2023/05/15 12:12:37 by shamzaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-all : $(NAME)
+all: $(NAME)
 
 MLX = libmlx.a
 

@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:05:54 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 08:25:13 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:58:03 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 #define WIDTH 1080
 #define HEIGHT 720
-#define MAX_ITER 300
+#define MAX_ITER 100
 
 #define RESET   "\x1B[0m"     // Reset color
 #define RED     "\x1B[31m"    // Red color
