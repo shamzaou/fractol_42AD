@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:57:38 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/14 12:22:09 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 04:08:14 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,33 @@ void draw_set(int set_num)
     graph.set_num = set_num;
     graph.img = &img;
     graph.zoom = 1.0;
+    graph.x_offset = 0.0;
+    graph.y_offset = 0.0;
     img.img = mlx_new_image(graph.mlx, WIDTH, HEIGHT);
     img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-    if (graph.set_num == 1)
-        {
-            ft_putstr(GREEN "Mandelbrot set\n" RESET);
-            mandel_draw(&img, graph.zoom);
-        }
-    else if (graph.set_num == 2)
-        {
-            ft_putstr(GREEN "Julia set\n" RESET);
-            //julia_draw(&img, &graph);
-        }
+    
+    draw_fractal(&graph);
+    
     mlx_hook(graph.win, 4, 1L << 2, mouse_scroll, &graph);
-    //mlx_hook(graph.win, 12, 1L << 15, expose_hook, &graph);
-    mlx_put_image_to_window(graph.mlx, graph.win, img.img, 0, 0);
+    mlx_hook(graph.win, 2, 1L << 0, key_press, &graph);
+    mlx_hook(graph.win, 17, 1L << 17, close_window, &graph);
+    // mlx_hook(graph.win, 12, 1L << 15, expose_hook, &graph);
+    // mlx_put_image_to_window(graph.mlx, graph.win, img.img, 0, 0);
     mlx_loop(graph.mlx);
 }
+
+void draw_fractal(t_graphics *graph)
+{
+    if (graph->set_num == 1)
+    {
+        ft_putstr(GREEN "Mandelbrot set\n" RESET);
+        mandel_draw(graph, graph->mouse_x, graph->mouse_y);
+    }
+    else if (graph->set_num == 2)
+    {
+        ft_putstr(GREEN "Julia set\n" RESET);
+        //julia_draw(graph);
+    }
+    mlx_put_image_to_window(graph->mlx, graph->win, graph->img->img, 0, 0);
+}
+

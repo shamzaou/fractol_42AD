@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:05:54 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/14 10:31:42 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 04:08:54 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #define WIDTH 800
 #define HEIGHT 600
-#define MAX_ITER 1000
+#define MAX_ITER 100
 
 #define RESET   "\x1B[0m"     // Reset color
 #define RED     "\x1B[31m"    // Red color
@@ -55,10 +55,15 @@ typedef struct	s_vars {
 	double	zoom;
 	t_gdata	*img;
 	t_plot	*points;
+	int		mouse_x;
+	int		mouse_y;
+	double	x_offset;
+	double	y_offset;
 }				t_graphics;
 
 void 	draw_set(int set_num);
-void 	mandel_draw(t_gdata *img, double zoom);
+void 	draw_fractal(t_graphics *graph);
+void 	mandel_draw(t_graphics *graph, int mouse_x, int mouse_y);
 int 	create_trgb(unsigned char t, unsigned char r, unsigned char g, unsigned char b);
 int 	color_map(int value, int max_iter);
 int 	mandel_helper(double real, double imag, int max_iter);
@@ -68,6 +73,8 @@ int 	julia_helper(t_plot points, int max_iter);
 void	my_mlx_pixel_put(t_gdata *data, int x, int y, int color);
 int		expose_hook(t_graphics *graph);
 int     mouse_scroll(int button, int x, int y, t_graphics *graph);
+int 	key_press(int keycode, t_graphics *graph);
+int 	close_window(t_graphics *graph);
 void 	ft_putstr(char *str);
 int		ft_atoi(char *str);
 
