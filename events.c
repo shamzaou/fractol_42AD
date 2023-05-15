@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:54:24 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 08:16:50 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 08:25:02 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int mouse_scroll(int button, int x, int y, t_graphics *graph)
     else if (button == 5)
         graph->zoom /= zoom_factor;
 
-    graph->mouse_x = x; // Store the current mouse position
-    graph->mouse_y = y; // Store the current mouse position
+    graph->mouse_x = x;
+    graph->mouse_y = y;
 
     draw_fractal(graph, graph->cus_pts.c_real, graph->cus_pts.c_imag); 
     mlx_put_image_to_window(graph->mlx, graph->win, graph->img->img, 0, 0);
@@ -35,9 +35,9 @@ int key_press(int keycode, t_graphics *graph)
     if (keycode == 53)
         close_window(graph);
     else if (keycode == 40)
-        graph->cycle += 2;
+        graph->cycle += 4;
     else if (keycode == 38)
-        graph->cycle -= 2;
+        graph->cycle -= 4;
     else if (keycode == 123) // Left arrow
         graph->x_offset -= move_factor;
     else if (keycode == 126) // Up arrow

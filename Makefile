@@ -6,7 +6,7 @@
 #    By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 19:22:58 by shamzaou          #+#    #+#              #
-#    Updated: 2023/05/14 10:29:01 by shamzaou         ###   ########.fr        #
+#    Updated: 2023/05/15 08:26:26 by shamzaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJ = $(FILES:.c=.o)
 
 CC = gcc 
 
-CFLAGS = 
+CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 

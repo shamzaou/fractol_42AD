@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 07:17:48 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 06:24:56 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 08:19:32 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,6 @@ void mandel_draw(t_graphics *graph, int mouse_x, int mouse_y)
     }
 }
 
-
-
-
-
 int mandel_helper(double real, double imag, int max_iter)
 {
     double  r;
@@ -60,7 +56,6 @@ int mandel_helper(double real, double imag, int max_iter)
     r = 0;
     i = 0;
     iter = 0;
-
     while (r * r + i * i <= 4 && iter < max_iter)
     {
         temp = r * r - i * i + real;

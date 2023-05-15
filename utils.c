@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:07:57 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 08:09:48 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 08:27:22 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ static int	ft_isdigit(int n)
 int	ft_atoi(char *str)
 {
 	long long	result;
-	int			sign;
 	int			i;
 
 	i = skip_space(str);

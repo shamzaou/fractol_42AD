@@ -6,18 +6,11 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:57:38 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 08:13:48 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 08:34:32 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
 #include "fractol.h"
-#include <stdio.h>
-
-#define RESET   "\x1B[0m"     // Reset color
-#define RED     "\x1B[31m"    // Red color
-#define GREEN   "\x1B[32m"    // Green color
-#define YELLOW  "\x1B[33m"    // Yellow color
 
 int main(int argc, char **argv)
 {
@@ -54,9 +47,9 @@ void show_usage(void)
     ft_putstr(GREEN "Available fractals:\n" RESET);
     ft_putstr(GREEN "Type '1' for the Mandelbrot set.\n" RESET);
     ft_putstr(GREEN "Type '2' for the default Julia set.\n" RESET);
-    ft_putstr(GREEN "For custom Julia set, type '2' followed by chosen \n" RESET);
-    ft_putstr(GREEN "complex parameters. Example : ./fractol 2 -0.835 -2321 \n" RESET);
-    ft_putstr("Both the real and imaginary parts must be in a [-2, 2] range.");
+    ft_putstr(GREEN "For a custom Julia set, type '2' followed by chosen \n" RESET);
+    ft_putstr(GREEN "complex parameters. Example : ./fractol 2 -0.835 -0.2321 \n" RESET);
+    ft_putstr("Both the real and imaginary parts must be in a [-2, 2] range.\n");
     exit(1);
 }
 

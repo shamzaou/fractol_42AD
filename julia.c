@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:02:05 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 08:05:10 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 08:20:28 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void    julia_init(t_graphics *graph, t_plot *p, t_cus_plot cus_pts)
     p->c_real = cus_pts.c_real;
     p->c_imag = cus_pts.c_imag;
 }
+
 void julia_draw(t_graphics *graph, int mouse_x, int mouse_y, t_cus_plot cus_pts)
 {
     t_gdata     *img;
