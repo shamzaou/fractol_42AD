@@ -6,27 +6,32 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 07:17:48 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 05:14:21 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 06:24:56 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+static void    mandel_init(t_graphics *graph, t_plot *p)
+{
+    p->y = -1;
+    p->y = -1;
+    p->x_min = -2 + graph->x_offset;
+    p->x_max = 1 + graph->x_offset;
+    p->y_min = -1 + graph->y_offset;
+    p->y_max = 1 + graph->y_offset;
+}
 void mandel_draw(t_graphics *graph, int mouse_x, int mouse_y)
 {
-    t_gdata *img;
-    double zoom;
-    t_plot  p;
-    int     value;
-    int     color;
+    t_gdata     *img;
+    double      zoom;
+    t_plot      p;
+    int         value;
+    int         color;
 
     img = graph->img;
     zoom = graph->zoom;
-    p.y = -1;
-    p.x_min = -2 + graph->x_offset;
-    p.x_max = 1 + graph->x_offset;
-    p.y_min = -1 + graph->y_offset;
-    p.y_max = 1 + graph->y_offset;
+    mandel_init(graph, &p);
     while (++p.y < HEIGHT)
     {
         p.x = -1;

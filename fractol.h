@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:05:54 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 06:07:45 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 06:10:52 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int 	create_trgb(unsigned char t, unsigned char r, unsigned char g, unsigned cha
 int 	color_map(int value, int max_iter, int cycle);
 int 	mandel_helper(double real, double imag, int max_iter);
 
-void 	julia_draw(t_gdata *img);
+void 	julia_draw(t_graphics *graph, int mouse_x, int mouse_y);
 int 	julia_helper(t_plot points, int max_iter);
 void	my_mlx_pixel_put(t_gdata *data, int x, int y, int color);
 int		expose_hook(t_graphics *graph);

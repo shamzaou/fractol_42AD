@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:57:38 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 05:44:50 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/05/15 06:11:02 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void draw_fractal(t_graphics *graph)
     else if (graph->set_num == 2)
     {
         ft_putstr(GREEN "Julia set\n" RESET);
-        //julia_draw(graph);
+        julia_draw(graph, graph->mouse_x, graph->mouse_y);
     }
     mlx_put_image_to_window(graph->mlx, graph->win, graph->img->img, 0, 0);
 }
