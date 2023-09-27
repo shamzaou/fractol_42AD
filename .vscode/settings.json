@@ -1,0 +1,10 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/Users/shamzaou/Desktop/fractol_42AD",
+            "binaryPath": "/Users/shamzaou/Desktop/fractol_42AD/fractol",
+            "binaryArgs": []
+        }
+    ],
+    "files.autoSave": "afterDelay"
+}

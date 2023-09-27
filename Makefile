@@ -12,7 +12,7 @@
 
 NAME = fractol
 
-FILES = main.c mandelbrot.c julia.c events.c utils.c
+FILES = main.c mandelbrot.c julia.c events.c utils.c 42_docs_functions.c
 
 OBJ = $(FILES:.c=.o)
 
