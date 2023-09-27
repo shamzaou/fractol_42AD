@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:05:54 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/27 15:16:21 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:09:11 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@
 # include "mlx/mlx.h"
 # include <ctype.h>
 # include <stdbool.h>
-# include <stdio.h>
 # include <stdlib.h>
+#include <limits.h>
+#include <string.h>
+#include <unistd.h>
+# include <math.h>
+
+#include <stdio.h>
 
 # define WIDTH 1080
 # define HEIGHT 720
@@ -105,7 +110,7 @@ int				key_press(int keycode, t_graphics *graph);
 int				close_window(t_graphics *graph);
 void			ft_putstr(char *str);
 int				ft_atoi(char *str);
-double			ft_atod(const char *str);
+double ft_atof(char *s);
 
 
 int mouse_hook(int mouse_code, int x, int y, t_graphics *graph);

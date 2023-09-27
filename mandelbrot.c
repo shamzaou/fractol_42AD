@@ -6,20 +6,11 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 07:17:48 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/27 13:43:37 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:56:35 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-// static void	mandel_init(t_graphics *graph, t_plot *p)
-// {
-// 	p->y = -1;
-// 	p->x_min = -2 + graph->x_offset;
-// 	p->x_max = 1 + graph->x_offset;
-// 	p->y_min = -1 + graph->y_offset;
-// 	p->y_max = 1 + graph->y_offset;
-// }
 
 static void	mandel_init(t_graphics *graph, t_plot *p)
 {

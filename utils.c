@@ -6,14 +6,12 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:07:57 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/27 15:26:02 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:09:35 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <limits.h>
-#include <string.h>
-#include <unistd.h>
+#include <stdbool.h>
 
 void	ft_putstr(char *str)
 {
@@ -21,15 +19,20 @@ void	ft_putstr(char *str)
 		write(1, str++, 1);
 }
 
-static int	skip_space(char *str)
-{
-	int	i;
+// static	int	ft_strlen(char *str)
+// {
+// 	int	i;
 
-	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	while (str[i])
+// 		i++;
+// 	return (i);
+// }
+
+// static int ft_isdigit(char c)
+// {
+// 	return (c >= '0' && c <= '9');
+// }
 
 int	ft_atoi(char *str)
 {
@@ -39,43 +42,81 @@ int	ft_atoi(char *str)
 	i = 0;
 	result = 0;
 	if (str == NULL)
-		return (-1);
+		return (-42);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (str[i] && str[i] >= '9' && str[i] <= '0')
-		return (-1);
+	if (str[i] && !(str[i] >= '0' && str[i] <= '9'))
+		return (-42);
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 	{
 		result = result * 10 + (str[i] - '0');
 		if (result > UINT_MAX)
-			return (-1);
+			return (-42);
 		i++;
 	}
 	if (str[i] && !(str[i] >= '0' && str[i] <= '9'))
-		return (-1);
+		return (-42);
 	return (result);
 }
 
-double	ft_atof(const char *str)
+// static int is_valid(const char *str)
+// {
+//     int i;
+
+//     i = 0;
+//     while (str[i] == ' ' || str[i] == '\t')
+//         i++;
+//     while (str[i] == '-' || str[i] == '+' || (str[i] >= '0' && str[i] <= '9'))
+//         i++;
+//     if (str[i] == '.')
+//         i++;
+//     while (str[i] >= '0' && str[i] <= '9')
+//         i++;
+//     while (str[i] == ' ' || str[i] == '\t')
+//         i++;
+    
+// }
+
+double ft_atof(char *s)
 {
-	double	res;
-	double	res2;
-	char	*c;
-	int		len;
+    // Skip leading whitespace
+    while (*s == ' ' || *s == '\t')
+        s++;
 
-	c = (char *)str;
-	res = (double)ft_atoi(c);
-	while (*c && *c != '.')
-		c++;
-	if (*c == '.')
-		c++;
-	res2 = (double)ft_atoi(c);
-	len = ft_strlen(c);
-	while (len--)
-		res2 /= 10;
-	if (res >= 0)
-		return (res + res2);
-	else
-		return (res + -res2);
+    // Check for a sign
+    int sign = 1;
+    if (*s == '-' || *s == '+') {
+        sign = (*s == '-') ? -1 : 1;
+        s++;
+    }
 
+    // Parse the integer part
+    double result = 0.0;
+    while (*s >= '0' && *s <= '9') {
+        result = result * 10.0 + (*s - '0');
+        s++;
+    }
+
+    // Check for a decimal point
+    if (*s == '.') {
+        s++;
+        double divisor = 10.0;
+        while (*s >= '0' && *s <= '9') {
+            result += (*s - '0') / divisor;
+            divisor *= 10.0;
+            s++;
+        }
+    }
+
+    // Handle any remaining non-numeric characters
+    while (*s != '\0') {
+        if (*s != ' ' && *s != '\t') {
+            // Error: Non-numeric character found
+            return NAN; // Not-a-Number to indicate an error
+        }
+        s++;
+    }
+
+    // Apply the sign
+    return result * sign;
 }
