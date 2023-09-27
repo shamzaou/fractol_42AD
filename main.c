@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:57:38 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/27 14:46:19 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:08:39 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,10 @@ void	draw_set(int set_num, double real, double imag)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	draw_fractal(&graph);
-
-	//mlx_hook(graph.win, 6, 0, mouse_move, &graph);
-	//mlx_hook(graph.win, 4, 0, mouse_scroll, &graph);
-	//mlx_hook(graph.win, 4, 0, mouse_zoom, &graph);
 	mlx_mouse_hook(graph.win, mouse_hook, &graph);
-
 	mlx_hook(graph.win, 2, 0, key_press, &graph);
 	mlx_hook(graph.win, 17, 0, close_window, &graph);
-	//mlx_hook(graph.win, 12, 1L << 15, expose_hook, &graph);
+	mlx_hook(graph.win, 12, 1L << 15, expose_hook, &graph);
 	mlx_loop(graph.mlx);
 }
 
@@ -97,5 +92,4 @@ void	draw_fractal(t_graphics *graph)
 		ft_putstr(GREEN "Julia set rendering ...\n" RESET);
 		julia_draw(graph);
 	}
-	//mlx_put_image_to_window(graph->mlx, graph->win, graph->img->img, 0, 0);
 }

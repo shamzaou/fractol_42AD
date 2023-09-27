@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:05:54 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/27 14:59:07 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:16:21 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,15 +100,13 @@ void			julia_draw(t_graphics *graph);
 int				julia_helper(t_plot points, int max_iter);
 void			my_mlx_pixel_put(t_gdata *data, int x, int y, int color);
 int				expose_hook(t_graphics *graph);
-int				mouse_scroll(int button, int x, int y, t_graphics *graph);
+
 int				key_press(int keycode, t_graphics *graph);
 int				close_window(t_graphics *graph);
 void			ft_putstr(char *str);
 int				ft_atoi(char *str);
 double			ft_atod(const char *str);
 
-int mouse_move(int x, int y, t_graphics *graph);
-int mouse_zoom(int button, int x, int y, t_graphics *graph);
 
 int mouse_hook(int mouse_code, int x, int y, t_graphics *graph);
 void	zoom(t_graphics *graph, int x, int y, int zoom);

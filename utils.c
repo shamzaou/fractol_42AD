@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:07:57 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/05/15 08:27:22 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:26:02 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,66 +31,51 @@ static int	skip_space(char *str)
 	return (i);
 }
 
-static int	ft_isdigit(int n)
-{
-	return (n >= '0' && n <= '9');
-}
-
 int	ft_atoi(char *str)
 {
 	long long	result;
 	int			i;
 
-	i = skip_space(str);
-	if (str[i] == '-')
-		return (-1);
-	if (str[i] == '+')
-		i++;
+	i = 0;
 	result = 0;
-	while (ft_isdigit(str[i]))
+	if (str == NULL)
+		return (-1);
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] && str[i] >= '9' && str[i] <= '0')
+		return (-1);
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 	{
 		result = result * 10 + (str[i] - '0');
-		if (result > INT_MAX)
+		if (result > UINT_MAX)
 			return (-1);
 		i++;
 	}
+	if (str[i] && !(str[i] >= '0' && str[i] <= '9'))
+		return (-1);
 	return (result);
 }
 
-double	ft_atod(const char *str)
+double	ft_atof(const char *str)
 {
-	double	result;
-	double	sign;
-	double	decimal_factor;
-	bool	decimal_point;
+	double	res;
+	double	res2;
+	char	*c;
+	int		len;
 
-	result = 0.0;
-	sign = 1.0;
-	decimal_factor = 1.0;
-	decimal_point = false;
-	while (isspace(*str))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1.0;
-		str++;
-	}
-	while ((*str >= '0' && *str <= '9') || *str == '.')
-	{
-		if (*str == '.')
-		{
-			if (decimal_point)
-				break ;
-			decimal_point = true;
-		}
-		else
-		{
-			if (decimal_point)
-				decimal_factor *= 0.1;
-			result = result * 10.0 + (*str - '0');
-		}
-		str++;
-	}
-	return (sign * result * decimal_factor);
+	c = (char *)str;
+	res = (double)ft_atoi(c);
+	while (*c && *c != '.')
+		c++;
+	if (*c == '.')
+		c++;
+	res2 = (double)ft_atoi(c);
+	len = ft_strlen(c);
+	while (len--)
+		res2 /= 10;
+	if (res >= 0)
+		return (res + res2);
+	else
+		return (res + -res2);
+
 }
