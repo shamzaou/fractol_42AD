@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:57:38 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/28 09:01:54 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/28 09:34:32 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		arg = ft_atoi(argv[1]);
-		printf("arrgggvvv = %d\n", arg);
 		if (arg == 1 || arg == 2)
 			draw_set(arg, 0, 0);
 		else
