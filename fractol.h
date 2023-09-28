@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:05:54 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/28 08:58:35 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/28 09:09:20 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,6 @@ int				ft_atoi(char *str);
 double			ft_atof(char *s);
 
 int				mouse_hook(int mouse_code, int x, int y, t_graphics *graph);
-int ft_strlen(char *str);
+int				ft_strlen(char *str);
 
 #endif

@@ -34,8 +34,8 @@ void	mandel_draw(t_graphics *graph)
 		p.x = -1;
 		while (++p.x < WIDTH)
 		{
-            p.real = p.x_min + (double)p.x / WIDTH * (p.x_max - p.x_min);
-            p.imag = p.y_min + (double)p.y / HEIGHT * (p.y_max - p.y_min);
+			p.real = p.x_min + (double)p.x / WIDTH * (p.x_max - p.x_min);
+			p.imag = p.y_min + (double)p.y / HEIGHT * (p.y_max - p.y_min);
 			value = mandel_helper(p.real, p.imag, MAX_ITER);
 			graph->color = color_map(value, MAX_ITER, graph->cycle);
 			my_mlx_pixel_put(img, p.x, p.y, graph->color);
