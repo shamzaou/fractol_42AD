@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:57:38 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/28 09:34:32 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/28 10:22:12 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	show_usage(void)
 	ft_putstr(GREEN "For a custom Julia set, type '2' followed " RESET);
 	ft_putstr(GREEN "by chosen complex parameters.\n" RESET);
 	ft_putstr(GREEN "Example : ./fractol 2 -0.835 -0.2321 \n" RESET);
+	ft_putstr(GREEN "Example : ./fractol 2 0.285 0.01\n" RESET);
+	ft_putstr(GREEN "Example : ./fractol 2 -0.7269 0.189\n" RESET);
 	ft_putstr("Both the real and imaginary parts must be in a [-2,2] range.\n");
 	exit(1);
 }

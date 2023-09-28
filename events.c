@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:54:24 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/27 15:06:10 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/28 10:11:43 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	key_press(int keycode, t_graphics *graph)
 int	close_window(t_graphics *graph)
 {
 	ft_putstr(RED "... Program closing ...\n" RESET);
+	mlx_destroy_image(graph->mlx, graph->img->img);
 	mlx_clear_window(graph->mlx, graph->win);
 	mlx_destroy_window(graph->mlx, graph->win);
 	exit(0);

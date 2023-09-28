@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:05:54 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/28 09:09:20 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/28 10:26:03 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <limits.h>
 # include <math.h>
 # include <stdbool.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
@@ -39,9 +38,6 @@
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 # define ESC 53
-# define PLUS 69
-# define MINUS 78
-# define SPACE 49
 # define J_COLOR_UP 38
 # define K_COLOR_DOWN 40
 
@@ -101,27 +97,29 @@ typedef struct s_atof
 	double		sign;
 }	t_atof;
 
-void			draw_set(int set_num, double real, double imag);
-void			draw_fractal(t_graphics *graph);
-void			mandel_draw(t_graphics *graph);
-int				create_trgb(unsigned char t, unsigned char r, unsigned char g,
-					unsigned char b);
-int				color_map(int value, int max_iter, int cycle);
-int				mandel_helper(double real, double imag, int max_iter);
-void			show_usage(void);
-
+/* >>> drawing functions <<< */
 void			julia_draw(t_graphics *graph);
 int				julia_helper(t_plot points, int max_iter);
 void			my_mlx_pixel_put(t_gdata *data, int x, int y, int color);
-int				expose_hook(t_graphics *graph);
+void			draw_set(int set_num, double real, double imag);
+void			draw_fractal(t_graphics *graph);
+void			mandel_draw(t_graphics *graph);
+int				color_map(int value, int max_iter, int cycle);
+int				mandel_helper(double real, double imag, int max_iter);
+int				create_trgb(unsigned char t, unsigned char r, unsigned char g,
+					unsigned char b);
 
+/* >>> events functions <<< */
+int				expose_hook(t_graphics *graph);
 int				key_press(int keycode, t_graphics *graph);
 int				close_window(t_graphics *graph);
+int				mouse_hook(int mouse_code, int x, int y, t_graphics *graph);
+
+/* >>> utils <<< */
+void			show_usage(void);
 void			ft_putstr(char *str);
 int				ft_atoi(char *str);
 double			ft_atof(char *s);
-
-int				mouse_hook(int mouse_code, int x, int y, t_graphics *graph);
 int				ft_strlen(char *str);
 
 #endif
