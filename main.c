@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 22:57:38 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/27 19:06:36 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/28 09:01:54 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,19 @@ int	main(int argc, char **argv)
 		if (arg == 1 || arg == 2)
 			draw_set(arg, 0, 0);
 		else
-		{
-			printf(" ==========4======== \n");
 			show_usage();
-		}
 	}
 	else if (argc == 4 && ft_atoi(argv[1]) == 2)
 	{
-		printf(" =========3=========== \n");
 		real = ft_atof(argv[2]);
 		imag = ft_atof(argv[3]);
 		if (real >= -2.0 && real <= 2.0 && imag >= -2.0 && imag <= 2.0)
 			draw_set(2, real, imag);
 		else
-	{
-		printf(" ==========2======== \n");
-		show_usage();
-	}
+			show_usage();
 	}
 	else
-	{
-		printf(" ==========1======== \n");
 		show_usage();
-	}
 	return (0);
 }
 
@@ -59,8 +49,8 @@ void	show_usage(void)
 	ft_putstr(GREEN "Type '1' for the Mandelbrot set.\n" RESET);
 	ft_putstr(GREEN "Type '2' for the default Julia set.\n" RESET);
 	ft_putstr(GREEN "For a custom Julia set, type '2' followed " RESET);
-	ft_putstr(GREEN "by chosen complex parameters. Example : " RESET);
-	ft_putstr(GREEN "./fractol 2 -0.835 -0.2321 \n" RESET);
+	ft_putstr(GREEN "by chosen complex parameters.\n" RESET);
+	ft_putstr(GREEN "Example : ./fractol 2 -0.835 -0.2321 \n" RESET);
 	ft_putstr("Both the real and imaginary parts must be in a [-2,2] range.\n");
 	exit(1);
 }

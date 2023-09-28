@@ -6,13 +6,13 @@
 #    By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 19:22:58 by shamzaou          #+#    #+#              #
-#    Updated: 2023/09/18 01:20:14 by shamzaou         ###   ########.fr        #
+#    Updated: 2023/09/28 08:40:56 by shamzaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
-FILES = main.c mandelbrot.c julia.c events.c utils.c 42_docs_functions.c
+FILES = main.c mandelbrot.c julia.c events.c utils.c utils2.c ft_atof.c
 
 OBJ = $(FILES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:05:54 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/27 21:09:11 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/28 08:58:35 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 
 # include "mlx/mlx.h"
 # include <ctype.h>
-# include <stdbool.h>
-# include <stdlib.h>
-#include <limits.h>
-#include <string.h>
-#include <unistd.h>
+# include <limits.h>
 # include <math.h>
-
-#include <stdio.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
 
 # define WIDTH 1080
 # define HEIGHT 720
@@ -92,6 +91,16 @@ typedef struct s_graphics
 	t_cus_plot	cus_pts;
 }				t_graphics;
 
+typedef struct s_atof
+{
+	long double	res;
+	int			x;
+	double		inde;
+	int			flag;
+	int			check;
+	double		sign;
+}	t_atof;
+
 void			draw_set(int set_num, double real, double imag);
 void			draw_fractal(t_graphics *graph);
 void			mandel_draw(t_graphics *graph);
@@ -110,10 +119,9 @@ int				key_press(int keycode, t_graphics *graph);
 int				close_window(t_graphics *graph);
 void			ft_putstr(char *str);
 int				ft_atoi(char *str);
-double ft_atof(char *s);
+double			ft_atof(char *s);
 
-
-int mouse_hook(int mouse_code, int x, int y, t_graphics *graph);
-void	zoom(t_graphics *graph, int x, int y, int zoom);
+int				mouse_hook(int mouse_code, int x, int y, t_graphics *graph);
+int ft_strlen(char *str);
 
 #endif

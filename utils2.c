@@ -6,7 +6,7 @@
 /*   By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 23:07:57 by shamzaou          #+#    #+#             */
-/*   Updated: 2023/09/27 16:56:45 by shamzaou         ###   ########.fr       */
+/*   Updated: 2023/09/28 08:29:19 by shamzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ void	my_mlx_pixel_put(t_gdata *data, int x, int y, int color)
 int	create_trgb(unsigned char t, unsigned char r, unsigned char g,
 		unsigned char b)
 {
-	return (*(int *)(unsigned char[4]){b, g, r, t});
+	return (*(int *)(unsigned char [4]){b, g, r, t});
 }
 
 int	color_map(int value, int max_iter, int cycle)
 {
 	double	t;
-    int     r;
-    int     g;
-    int     b;
+	int		r;
+	int		g;
+	int		b;
 
 	if (!(cycle >= -max_iter && cycle < max_iter))
 		cycle = 0;

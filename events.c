@@ -12,10 +12,10 @@
 
 #include "fractol.h"
 
-int mouse_hook(int mouse_code, int x, int y, t_graphics *graph)
+int	mouse_hook(int mouse_code, int x, int y, t_graphics *graph)
 {
-	x = x*1;
-	y = y*1;
+	x = x * 1;
+	y = y * 1;
 	if (mouse_code == SCROLL_UP)
 		graph->zoom *= 1.5;
 	else if (mouse_code == SCROLL_DOWN)
@@ -27,7 +27,7 @@ int mouse_hook(int mouse_code, int x, int y, t_graphics *graph)
 int	key_press(int keycode, t_graphics *graph)
 {
 	double	move_factor;
-	
+
 	move_factor = 1;
 	move_factor /= graph->zoom * 10;
 	if (keycode == ESC)
