@@ -6,7 +6,7 @@
 #    By: shamzaou <shamzaou@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 19:22:58 by shamzaou          #+#    #+#              #
-#    Updated: 2023/09/28 08:40:56 by shamzaou         ###   ########.fr        #
+#    Updated: 2023/09/28 09:25:35 by shamzaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	cd mlx && make
-	$(CC) $(OBJ) -Lmlx -lm -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -Lmlx -lm -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -f $(OBJ)
